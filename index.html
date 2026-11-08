@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InsuranceBuddy - Smart Insurance Guides & Comparisons for USA & UK</title>
+  <meta name="description" content="InsuranceBuddy provides unbiased, cross-border insurance guides, premium estimators, and policy breakdowns tailored specifically for consumers and families in the USA and United Kingdom.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+
+  <!-- Top Region Selector & Market Banner -->
+  <aside class="top-notice-bar" aria-label="Region selector bar">
+    <div class="container top-notice-inner">
+      <div>
+        <span>🌐 Showing verified insurance guides for: <strong data-region-name>United States</strong> <span data-region-flag>🇺🇸</span></span>
+      </div>
+      <div class="region-selector">
+        <span>Select Jurisdiction:</span>
+        <div class="region-btn-group" role="group" aria-label="Country selection">
+          <button type="button" class="region-toggle-btn active" data-region="US">🇺🇸 USA ($)</button>
+          <button type="button" class="region-toggle-btn" data-region="UK">🇬🇧 UK (£)</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="brand-logo" aria-label="InsuranceBuddy Homepage">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <span>Insurance<span class="highlight">Buddy</span></span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="blog.html">All Guides &amp; Articles</a></li>
+          <li><a href="post-health-insurance-us-uk.html">Health &amp; Medical</a></li>
+          <li><a href="post-life-insurance-guide.html">Life &amp; Income</a></li>
+          <li><a href="post-property-insurance-guide.html">Home &amp; Property</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="btn btn-primary open-quote-modal">Get Quote Help</button>
+          <button class="mobile-toggle" aria-label="Toggle navigation menu">&#9776;</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section with Dual US/UK Value Proposition & Interactive Calculator -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text-col">
+            <div class="hero-badge">
+              <span class="pill">2025 Edition</span>
+              <span>Cross-Atlantic Insurance Intelligence</span>
+            </div>
+            <h1 class="hero-title">
+              Clear Insurance Answers for Families in the <span class="blue-gradient">USA &amp; UK</span>
+            </h1>
+            <p class="hero-subtitle">
+              Demystifying health deductibles, NHS private medical top-ups, level-term life trusts, and homeowner hazard covers with verified, transparent guidance.
+            </p>
+
+            <div class="search-bar-wrap">
+              <input type="text" id="blog-search-input" placeholder="Search guides (e.g., deductible, PMI, term life, hazard)..." aria-label="Search guides">
+              <button class="btn btn-primary" type="button" onclick="document.getElementById('guides-section').scrollIntoView({behavior: 'smooth'})">Search</button>
+            </div>
+
+            <div class="trust-stats">
+              <div class="stat-item">
+                <h4>150K+</h4>
+                <p>US &amp; UK Readers</p>
+              </div>
+              <div class="stat-item">
+                <h4>100%</h4>
+                <p>Unbiased &amp; Independent</p>
+              </div>
+              <div class="stat-item">
+                <h4>FCA &amp; NAIC</h4>
+                <p>Standards Aware</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Live Estimate Calculator -->
+          <div class="hero-calc-card">
+            <div class="calc-header">
+              <h3>⚡ Quick Premium Estimator</h3>
+              <p>Explore approximate policy rates for <span data-region-name>United States</span> (<span data-currency-symbol>$</span>)</p>
+            </div>
+
+            <div class="calc-form-group">
+              <label for="calc-insurance-type">Select Insurance Type</label>
+              <select id="calc-insurance-type" class="calc-select">
+                <option value="health">Health / Medical Coverage</option>
+                <option value="life">Life Insurance (Term Policy)</option>
+                <option value="home">Home / Property Insurance</option>
+                <option value="auto">Car / Auto Insurance</option>
+              </select>
+            </div>
+
+            <div class="calc-form-group">
+              <label for="calc-coverage-tier">Coverage Tier</label>
+              <select id="calc-coverage-tier" class="calc-select">
+                <option value="standard">Standard Individual / Essential</option>
+                <option value="premium">Comprehensive / Family Plus</option>
+                <option value="estate">High Sum Assured / Elite Cover</option>
+              </select>
+            </div>
+
+            <div class="calc-form-group">
+              <label for="calc-age-input">Applicant Age: <span id="age-val">35</span></label>
+              <input type="range" id="calc-age-input" min="20" max="70" value="35" class="calc-input" oninput="document.getElementById('age-val').textContent = this.value">
+            </div>
+
+            <div class="calc-result-box">
+              <span class="calc-estimate-label">Estimated Baseline Premium</span>
+              <div class="calc-price" id="calc-display-price">$320</div>
+              <small id="calc-display-note">Includes typical ACA Silver benchmark co-insurance.</small>
+            </div>
+
+            <button style="width: 100%; margin-top: 1.25rem;" class="btn btn-primary open-quote-modal">
+              Compare Tailored Quotes &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Pill Filter Section -->
+    <section class="category-filter-section">
+      <div class="container">
+        <div class="category-tags" role="tablist">
+          <button class="cat-pill active" data-category="all" role="tab">All Policy Guides</button>
+          <button class="cat-pill" data-category="health" role="tab">🏥 Health &amp; Medical (US/UK)</button>
+          <button class="cat-pill" data-category="life" role="tab">🛡️ Life &amp; Income Protection</button>
+          <button class="cat-pill" data-category="property" role="tab">🏡 Home &amp; Hazard Cover</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Blog Guides Section -->
+    <section class="section-padding" id="guides-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Featured Editorial</span>
+          <h2 class="section-title">In-Depth Insurance Guides &amp; Analyses</h2>
+          <p class="section-desc">
+            Expertly researched breakdowns written for expatriates, families, and homeowners in both the American and British markets.
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Blog Card 1: Health Insurance -->
+          <article class="blog-card" data-category="health">
+            <div class="card-thumb-wrap">
+              <img src="images/health-insurance.svg" alt="US vs UK Healthcare and Insurance Comparison" class="card-svg-hero" loading="lazy">
+              <span class="region-tag tag-both">🇺🇸 US &amp; 🇬🇧 UK Guide</span>
+              <span class="category-tag">Health Insurance</span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span>📅 Published: Oct 2025</span>
+                <span>⏱️ 9 Min Read</span>
+              </div>
+              <h3 class="card-title">
+                <a href="post-health-insurance-us-uk.html">US vs UK Healthcare &amp; Insurance: Deciphering Deductibles, PMI, and NHS Coverage</a>
+              </h3>
+              <p class="card-excerpt">
+                How does the American deductible, copay, and out-of-pocket maximum model differ from the British National Health Service and Private Medical Insurance (PMI)? Learn how to protect your family from medical debt.
+              </p>
+              <div class="card-footer">
+                <div class="card-author">
+                  <div class="author-avatar">SM</div>
+                  <div class="author-info">
+                    <h5>Sarah Mitchell</h5>
+                    <span>Health Underwriting Lead</span>
+                  </div>
+                </div>
+                <a href="post-health-insurance-us-uk.html" class="read-more-link">Read Guide &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 2: Life Insurance -->
+          <article class="blog-card" data-category="life">
+            <div class="card-thumb-wrap">
+              <img src="images/life-insurance.svg" alt="Term vs Whole Life Insurance US and UK" class="card-svg-hero" loading="lazy">
+              <span class="region-tag tag-both">🇺🇸 US &amp; 🇬🇧 UK Guide</span>
+              <span class="category-tag">Life &amp; Income</span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span>📅 Published: Nov 2025</span>
+                <span>⏱️ 8 Min Read</span>
+              </div>
+              <h3 class="card-title">
+                <a href="post-life-insurance-guide.html">Term vs Whole Life Insurance in 2025: A Cross-Atlantic Guide for Families</a>
+              </h3>
+              <p class="card-excerpt">
+                Why paying whole life premiums may bleed your retirement savings, and why writing UK policies in trust avoids the 40% inheritance tax trap. Discover the optimal sum assured calculation formula.
+              </p>
+              <div class="card-footer">
+                <div class="card-author">
+                  <div class="author-avatar">DC</div>
+                  <div class="author-info">
+                    <h5>David Clarke, CFP</h5>
+                    <span>Chartered Financial Analyst</span>
+                  </div>
+                </div>
+                <a href="post-life-insurance-guide.html" class="read-more-link">Read Guide &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 3: Property Insurance -->
+          <article class="blog-card" data-category="property">
+            <div class="card-thumb-wrap">
+              <img src="images/property-insurance.svg" alt="Homeowners and Property Insurance Guide" class="card-svg-hero" loading="lazy">
+              <span class="region-tag tag-both">🇺🇸 US &amp; 🇬🇧 UK Guide</span>
+              <span class="category-tag">Home &amp; Property</span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span>📅 Published: Nov 2025</span>
+                <span>⏱️ 10 Min Read</span>
+              </div>
+              <h3 class="card-title">
+                <a href="post-property-insurance-guide.html">Homeowners &amp; Property Protection: US Hazard &amp; Flood vs UK Buildings &amp; Contents Cover</a>
+              </h3>
+              <p class="card-excerpt">
+                Mortgage escrow traps in Florida and California vs Flood Re and subsidence pitfalls in England and Scotland. Everything you must know about replacement cost vs actual cash value.
+              </p>
+              <div class="card-footer">
+                <div class="card-author">
+                  <div class="author-avatar">EW</div>
+                  <div class="author-info">
+                    <h5>Emma Watson</h5>
+                    <span>Senior Property Risk Assessor</span>
+                  </div>
+                </div>
+                <a href="post-property-insurance-guide.html" class="read-more-link">Read Guide &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transatlantic Terminology Rosetta Stone -->
+    <section class="section-padding comparison-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Cross-Border Rosetta Stone</span>
+          <h2 class="section-title">Translating US &amp; UK Insurance Jargon</h2>
+          <p class="section-desc">
+            Moving between the United States and the United Kingdom? Don't let differing policy vocabularies leave you underinsured or paying out of pocket.
+          </p>
+        </div>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th style="width: 28%;">Insurance Concept</th>
+                <th style="width: 36%;"><span class="badge-country">🇺🇸 United States Standard</span></th>
+                <th style="width: 36%;"><span class="badge-country">🇬🇧 United Kingdom Standard</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>First-Dollar Out-of-Pocket Expense</strong></td>
+                <td><strong>Deductible</strong> (e.g. $1,500 – $7,500 per year before carrier coverage starts).</td>
+                <td><strong>Policy Excess</strong> (Compulsory + Voluntary, typically £100 – £500 per claim).</td>
+              </tr>
+              <tr>
+                <td><strong>Fixed Per-Visit Fee</strong></td>
+                <td><strong>Copay</strong> ($20–$50 per doctor visit, $150–$300 ER visit).</td>
+                <td><strong>Zero copay</strong> at point of NHS service; nominal excess on private PMI outpatient appointments.</td>
+              </tr>
+              <tr>
+                <td><strong>Routine Healthcare Foundation</strong></td>
+                <td><strong>ACA Marketplace / Employer Group Health Plan</strong> + High Deductible Health Plan (HDHP) with HSA.</td>
+                <td><strong>National Health Service (NHS)</strong> funded via general taxation + Supplemental Private Medical Insurance (PMI).</td>
+              </tr>
+              <tr>
+                <td><strong>Death Benefit Taxation</strong></td>
+                <td>Generally income tax-free under IRC § 101(a); subject to federal estate tax only above high exemptions ($13.6M+).</td>
+                <td>Income tax-free; however, unless <strong>written in trust</strong>, the lump sum is added to the estate and subject to 40% Inheritance Tax (IHT).</td>
+              </tr>
+              <tr>
+                <td><strong>Homeowner Dwelling Coverage</strong></td>
+                <td><strong>HO-3 / HO-5 Homeowners Policy</strong> with separate NFIP flood insurance rider.</td>
+                <td><strong>Buildings &amp; Contents Insurance</strong> with Flood Re integration and subsidence protection.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA Banner -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-content">
+            <h2 class="cta-title">Never Overpay for Insurance Again</h2>
+            <p class="cta-desc">
+              Subscribe to the InsuranceBuddy Weekly Digest. We scan policy changes, regulatory updates from the NAIC &amp; FCA, and negotiate group discounts.
+            </p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+              <button type="submit" class="btn btn-primary">Join 35,000+ Subscribers</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color: #ffffff;">
+            <div class="brand-icon">🛡️</div>
+            <span>Insurance<span class="highlight">Buddy</span></span>
+          </a>
+          <p>
+            The independent insurance portal helping American and British citizens make smarter, mathematically grounded decisions across health, life, and property coverage.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Insurance Guides</h4>
+          <ul class="footer-links">
+            <li><a href="post-health-insurance-us-uk.html">US vs UK Health Systems</a></li>
+            <li><a href="post-life-insurance-guide.html">Term vs Whole Life Policies</a></li>
+            <li><a href="post-property-insurance-guide.html">Homeowners &amp; Hazard Shield</a></li>
+            <li><a href="blog.html">Browse All 2025 Analyses</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company &amp; Legal</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About InsuranceBuddy</a></li>
+            <li><a href="contact.html">Contact Advisory Team</a></li>
+            <li><a href="about.html#editorial">Editorial Independence</a></li>
+            <li><a href="about.html#compliance">US &amp; UK Compliance</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Cross-Border Offices</h4>
+          <p style="font-size: 0.88rem; line-height: 1.6; color: #94a3b8;">
+            🗽 <strong>New York:</strong> 450 Lexington Ave, New York, NY 10017<br><br>
+            🇬🇧 <strong>London:</strong> 30 St Mary Axe, City of London, EC3A 8EP
+          </p>
+        </div>
+      </div>
+
+      <div class="regulatory-disclaimer">
+        <strong>Important Disclaimer:</strong> InsuranceBuddy is an independent educational publishing portal and comparison platform. Content is provided for informational and financial literacy purposes only and does not constitute formal underwriting, actuarial, or legal advice. Policy terms, exclusions, deductibles, and premiums vary by US state and UK jurisdiction. US policies are regulated by state insurance commissioners (NAIC guidelines); UK insurance products mentioned are regulated by the Financial Conduct Authority (FCA).
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2025-2026 InsuranceBuddy Inc. All rights reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Quick Quote Assistance Modal -->
+  <div class="quote-modal-overlay" id="quote-modal-overlay">
+    <div class="quote-modal">
+      <button class="modal-close" aria-label="Close dialog">&times;</button>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span style="font-size: 2rem;">🛡️</span>
+        <h3 style="font-size: 1.4rem; margin-top: 0.35rem;">Free Insurance Matching Help</h3>
+        <p style="font-size: 0.85rem; color: #64748b;">Connect with pre-vetted carriers in the US (<span data-region-name></span>) or UK.</p>
+      </div>
+
+      <form id="modal-quote-form">
+        <div class="form-group">
+          <label>Policy Category</label>
+          <select class="form-control" required>
+            <option value="health">Health / Medical Insurance</option>
+            <option value="life">Term / Whole Life Insurance</option>
+            <option value="home">Homeowners / Property Protection</option>
+            <option value="auto">Auto / Motor Insurance</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Your Country / Region</label>
+          <select class="form-control" required>
+            <option value="US">🇺🇸 United States</option>
+            <option value="UK">🇬🇧 United Kingdom</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" class="form-control" placeholder="e.g. John Miller" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" class="form-control" placeholder="john@example.com" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+          Request Carrier Comparison
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
