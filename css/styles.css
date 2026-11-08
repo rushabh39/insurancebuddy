@@ -1374,3 +1374,81 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===================================================================
+   Adsterra Ads Integration Styling
+   =================================================================== */
+.ad-slot-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1.75rem auto;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ad-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.ad-box {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.ad-sidebar-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.sponsored-banner-cta {
+  background: linear-gradient(135deg, #1e40af 0%, #0284c7 100%);
+  color: #ffffff;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: var(--shadow-md);
+  margin: 1.5rem 0;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.sponsored-banner-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: #ffffff;
+}
+
+.sponsored-badge {
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+}
