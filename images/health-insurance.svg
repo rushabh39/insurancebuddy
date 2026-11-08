@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradHealth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2b48"/>
+      <stop offset="50%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#eff6ff" stop-opacity="0.8"/>
+    </linearGradient>
+    <filter id="glowHealth" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#bgGradHealth)"/>
+
+  <!-- Tech / Data Grid Lines -->
+  <g opacity="0.12" stroke="#ffffff" stroke-width="1.5">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="160" y1="0" x2="160" y2="450"/>
+    <line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/>
+    <line x1="640" y1="0" x2="640" y2="450"/>
+  </g>
+
+  <!-- Floating Glow Orbs -->
+  <circle cx="200" cy="140" r="160" fill="#38bdf8" opacity="0.25" filter="url(#glowHealth)"/>
+  <circle cx="650" cy="300" r="180" fill="#1d4ed8" opacity="0.35" filter="url(#glowHealth)"/>
+
+  <!-- Central Shield -->
+  <g transform="translate(400, 225)">
+    <!-- Outer Shield Shadow -->
+    <path d="M 0 -130 Q 90 -120 120 -40 Q 120 70 0 140 Q -120 70 -120 -40 Q -90 -120 0 -130 Z" fill="#000000" opacity="0.25" transform="translate(0, 10)"/>
+    
+    <!-- Outer Shield Frame -->
+    <path d="M 0 -130 Q 90 -120 120 -40 Q 120 70 0 140 Q -120 70 -120 -40 Q -90 -120 0 -130 Z" fill="url(#shieldGrad)" stroke="#ffffff" stroke-width="4"/>
+
+    <!-- Medical Cross -->
+    <path d="M -22 -65 H 22 V -22 H 65 V 22 H 22 V 65 H -22 V 22 H -65 V -22 H -22 Z" fill="#2563eb"/>
+
+    <!-- Heartbeat ECG Wave -->
+    <path d="M -90 10 L -45 10 L -30 -25 L -10 35 L 10 -40 L 30 20 L 45 10 L 90 10" fill="none" stroke="#0284c7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Left Side: US Health Badge -->
+  <g transform="translate(140, 225)">
+    <rect x="-80" y="-45" width="160" height="90" rx="16" fill="#ffffff" opacity="0.95" filter="url(#glowHealth)"/>
+    <text x="0" y="-12" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="14" fill="#0f2b48" text-anchor="middle">🇺🇸 USA SYSTEM</text>
+    <text x="0" y="10" font-family="'Inter', Arial, sans-serif" font-weight="600" font-size="11" fill="#2563eb" text-anchor="middle">ACA • HSA • Medicare</text>
+    <text x="0" y="28" font-family="'Inter', Arial, sans-serif" font-weight="500" font-size="10" fill="#64748b" text-anchor="middle">Deductibles &amp; Copays</text>
+  </g>
+
+  <!-- Right Side: UK Health Badge -->
+  <g transform="translate(660, 225)">
+    <rect x="-80" y="-45" width="160" height="90" rx="16" fill="#ffffff" opacity="0.95" filter="url(#glowHealth)"/>
+    <text x="0" y="-12" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="14" fill="#0f2b48" text-anchor="middle">🇬🇧 UK SYSTEM</text>
+    <text x="0" y="10" font-family="'Inter', Arial, sans-serif" font-weight="600" font-size="11" fill="#e11d48" text-anchor="middle">NHS + Private PMI</text>
+    <text x="0" y="28" font-family="'Inter', Arial, sans-serif" font-weight="500" font-size="10" fill="#64748b" text-anchor="middle">Fast-track &amp; Policy Excess</text>
+  </g>
+
+  <!-- Title Bottom Ribbon -->
+  <rect x="220" y="380" width="360" height="42" rx="21" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(255, 255, 255, 0.2)"/>
+  <text x="400" y="407" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="1">HEALTH INSURANCE COMPARISON 2025</text>
+</svg>
